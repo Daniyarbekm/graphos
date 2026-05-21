@@ -13,6 +13,8 @@ Modern mathematical graph visualization — inspired by Desmos.
 - **Framer Motion** — UI animations
 - **shadcn/ui** — component primitives
 
+- url:   https://graphos-eight.vercel.app 
+
 ## Getting Started
 
 ```bash
