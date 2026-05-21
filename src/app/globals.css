@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-glass: var(--glass);
+  --color-glass-border: var(--glass-border);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-graph-bg: var(--graph-bg);
+  --color-graph-grid: var(--graph-grid);
+  --color-graph-axis: var(--graph-axis);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.985 0.002 247);
+  --foreground: oklch(0.18 0.02 260);
+  --card: oklch(1 0 0 / 72%);
+  --card-foreground: oklch(0.18 0.02 260);
+  --popover: oklch(1 0 0 / 88%);
+  --popover-foreground: oklch(0.18 0.02 260);
+  --primary: oklch(0.52 0.19 255);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0.006 255);
+  --secondary-foreground: oklch(0.28 0.02 260);
+  --muted: oklch(0.955 0.006 255);
+  --muted-foreground: oklch(0.5 0.02 260);
+  --accent: oklch(0.94 0.02 255);
+  --accent-foreground: oklch(0.28 0.04 255);
+  --destructive: oklch(0.58 0.22 25);
+  --border: oklch(0.9 0.01 255 / 80%);
+  --input: oklch(0.92 0.01 255);
+  --ring: oklch(0.52 0.19 255);
+  --glass: oklch(1 0 0 / 55%);
+  --glass-border: oklch(1 0 0 / 40%);
+  --surface: oklch(0.97 0.004 255);
+  --surface-elevated: oklch(1 0 0 / 90%);
+  --graph-bg: oklch(0.99 0.002 255);
+  --graph-grid: oklch(0.88 0.01 255 / 60%);
+  --graph-axis: oklch(0.72 0.02 255);
+}
+
+.dark {
+  --background: oklch(0.14 0.015 260);
+  --foreground: oklch(0.96 0.005 255);
+  --card: oklch(0.2 0.02 260 / 65%);
+  --card-foreground: oklch(0.96 0.005 255);
+  --popover: oklch(0.22 0.02 260 / 88%);
+  --popover-foreground: oklch(0.96 0.005 255);
+  --primary: oklch(0.68 0.16 255);
+  --primary-foreground: oklch(0.14 0.02 260);
+  --secondary: oklch(0.24 0.02 260);
+  --secondary-foreground: oklch(0.92 0.01 255);
+  --muted: oklch(0.22 0.02 260);
+  --muted-foreground: oklch(0.68 0.02 255);
+  --accent: oklch(0.28 0.04 255);
+  --accent-foreground: oklch(0.96 0.01 255);
+  --destructive: oklch(0.65 0.2 25);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.68 0.16 255);
+  --glass: oklch(0.22 0.02 260 / 55%);
+  --glass-border: oklch(1 0 0 / 12%);
+  --surface: oklch(0.18 0.02 260);
+  --surface-elevated: oklch(0.24 0.02 260 / 90%);
+  --graph-bg: oklch(0.12 0.015 260);
+  --graph-grid: oklch(1 0 0 / 8%);
+  --graph-axis: oklch(1 0 0 / 25%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply border border-glass-border bg-glass backdrop-blur-xl backdrop-saturate-150;
+  }
+
+  .glass-panel-strong {
+    @apply border border-glass-border bg-card backdrop-blur-2xl backdrop-saturate-150;
+  }
+
+  .surface-panel {
+    @apply rounded-xl border border-border/60 bg-surface;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .transition-theme {
+    transition:
+      background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
